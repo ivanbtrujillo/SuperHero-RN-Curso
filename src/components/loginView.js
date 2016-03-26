@@ -4,64 +4,101 @@
 import React, {
   Component,
   View,
-  StyleSheet,
+  Image,
   Text,
+  TextInput,
+  TouchableHighlight,
   Alert,
-  TouchableHighlight
+  StyleSheet
 } from 'react-native'
 
 class loginView extends Component{
+
+
+  constructor(props) {
+      super(props);
+      console.log(props);
+      this.state = {
+          username: "",
+          password: ""
+      };
+  }
+
+
   render(){
     return(
-      <View style={style.container}>
-        <Text>Este es el componente Login</Text>
-        <TouchableHighlight onPress={(this.onLoginPressed.bind(this))} style={style.boton}>
-          <Text style={style.botonTexto}>Login</Text>
-        </TouchableHighlight>
-        <TouchableHighlight onPress={(this.onRegisterPressed.bind(this))} style={style.boton}>
-          <Text style={style.botonTexto}>Register</Text>
-        </TouchableHighlight>
-      </View>
+      <Image source={{uri: 'https://pixabay.com/static/uploads/photo/2015/03/11/01/33/hulk-667988_960_720.jpg'}} style={styles.container}>
+                   <Text style={styles.title}>
+                       SuperHero
+                   </Text>
+                   <View>
+                       <TouchableHighlight onPress={(this.onLogin.bind(this))} style={styles.boton}>
+                           <Text style={styles.textoBoton}>Login</Text>
+                       </TouchableHighlight>
+                   </View>
+               </Image>
     )
   }
 
-  onLoginPressed(){
+  onLogin(){
     Alert.alert(
-      'SuperHero dice',
-      'Te has Logueado',
+      'Acceso',
+      'Te has logueado en el sistema',
       [
-        {text: 'OK', onPress: () => console.log('OK Pulsado')}
+        {
+          text: 'Aceptar',
+          onPress: (this.aceptar.bind(this))
+        },
+        {
+          text: 'Cancelar',
+          onPress: (this.cancelar.bind(this))
+        }
       ]
-    );
+    )
   }
 
-  onRegisterPressed(){
-    Alert.alert(
-      'SuperHero dice',
-      'Te has autenticado',
-      [
-        {text: 'OK', onPress: () => console.log('OK Pulsado')}
-      ]
-    );
+  aceptar(){
+    this.props.navigator.replace({
+        title:'Dashboard',
+        name:'Dashboard',
+        passProps: {},
+    })
+
+  }
+  cancelar(){
+    console.log('Login cancelado')
   }
 }
 
-
-const style = StyleSheet.create({
-
-   boton: {
-     margin: 10,
-     backgroundColor: 'blue',
-     width: 300,
-     height:36,
+const styles = StyleSheet.create({
+container: {
+    flex: 1,
+    width: null,
+    height: null,
+    alignItems: 'stretch',
+    padding: 30
+},
+ title: {
+     marginTop:20,
+     fontSize: 35,
+     marginBottom: 10,
+     backgroundColor: 'rgba(52,52,52,0)',
+     textAlign: 'center',
+     color:'#FFFFFF'
+ },
+ boton: {
+     height: 36,
+     backgroundColor: 'red',
      borderWidth: 1,
      borderRadius: 8,
+     marginTop: 100,
      justifyContent: 'center',
      alignItems: 'center'
-   },
-   botonTexto: {
-     color: 'white'
-   }
-});
+ },
+ textoBoton: {
+     color: "#ffffff",
+ }
+
+})
 
 module.exports = loginView;
