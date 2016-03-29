@@ -32,7 +32,7 @@ let NavigationBarRouteMapper = {
     return null;
   },
   Title: function(route){
-    if(route.name == 'Login'){
+    if(route.name == 'Login' || route.name == 'Dashboard'){
       return null;
     }
     return(
@@ -44,7 +44,7 @@ let NavigationBarRouteMapper = {
 };
 
 const Login = require('./src/components/loginView')
-const Dashboard = require('./src/components/dashboardView')
+const Tabs = require('./src/components/tabs')
 
 class SuperHero extends Component {
   renderScene (route, navigator) {
@@ -55,7 +55,7 @@ class SuperHero extends Component {
        );
        case 'Dashboard':
         return (
-          <Dashboard {...route.props} navigator={navigator} route={route}/>
+          <Tabs {...route.props} navigator={navigator} route={route}/>
        );
 
     }
