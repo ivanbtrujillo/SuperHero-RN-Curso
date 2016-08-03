@@ -6,6 +6,7 @@
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
+    "crypto-js": "^3.1.6",
     "react": "^0.14.7",
     "react-native": "^0.22.2"
   }

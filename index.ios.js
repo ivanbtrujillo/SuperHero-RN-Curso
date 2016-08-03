@@ -45,6 +45,7 @@ let NavigationBarRouteMapper = {
 
 const Login = require('./src/components/loginView')
 const Tabs = require('./src/components/tabs')
+const Details = require('./src/components/comicDetailView')
 
 class SuperHero extends Component {
   renderScene (route, navigator) {
@@ -57,6 +58,10 @@ class SuperHero extends Component {
         return (
           <Tabs {...route.props} navigator={navigator} route={route}/>
        );
+       case 'Details':
+        return(
+          <Details {...route.props} navigator={navigator} route={route} />
+        );
 
     }
   }
