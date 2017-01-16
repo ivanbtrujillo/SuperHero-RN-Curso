@@ -78,7 +78,7 @@ class dashboardView extends Component{
 
     return(
       <ListView
-        dataSource= {this.state.dataSource}
+        dataSource={this.state.dataSource}
         renderRow={this.renderComic.bind(this)}
         style={styles.listview}
       />
@@ -86,7 +86,7 @@ class dashboardView extends Component{
   }
 
   onComicPressed(comic){
-    console.log(comic);
+    console.log('comic',comic);
     this.props.navigator.push({
       name: 'Details',
       title: comic.name,

@@ -28,19 +28,19 @@ class loginView extends Component{
   render(){
     return(
       <Image source={{uri: 'https://pixabay.com/static/uploads/photo/2015/03/11/01/33/hulk-667988_960_720.jpg'}} style={styles.container}>
-                   <Text style={styles.title}>
-                       SuperHero
-                   </Text>
-                   <View>
-                       <TouchableHighlight onPress={(this.onLogin.bind(this))} style={styles.boton}>
-                           <Text style={styles.textoBoton}>Login</Text>
-                       </TouchableHighlight>
-                   </View>
-               </Image>
-    )
+        <Text style={styles.title}>
+         SuperHero
+        </Text>
+        <View>
+          <TouchableHighlight onPress={(this.onLogin.bind(this))} style={styles.boton}>
+            <Text style={styles.textoBoton}>Login</Text>
+          </TouchableHighlight>
+        </View>
+      </Image>
+    );
   }
 
-  onLogin(){
+  onLogin () {
     Alert.alert(
       'Acceso',
       'Te has logueado en el sistema',
@@ -54,37 +54,36 @@ class loginView extends Component{
           onPress: (this.cancelar.bind(this))
         }
       ]
-    )
+    );
   }
 
-  aceptar(){
+  aceptar () {
     this.props.navigator.replace({
-        title:'Dashboard',
-        name:'Dashboard',
-        passProps: {},
-    })
-
+      title: 'Dashboard',
+      name: 'Dashboard',
+      passProps: {}
+    });
   }
-  cancelar(){
-    console.log('Login cancelado')
+  cancelar () {
+    console.log ('Login cancelado');
   }
 }
 
 const styles = StyleSheet.create({
-container: {
+  container: {
     flex: 1,
     width: null,
     height: null,
     alignItems: 'stretch',
     padding: 30
-},
- title: {
-     marginTop:20,
-     fontSize: 35,
-     marginBottom: 10,
-     backgroundColor: 'rgba(52,52,52,0)',
-     textAlign: 'center',
-     color:'#FFFFFF'
+  },
+  title: {
+    marginTop: 20,
+    fontSize: 35,
+    marginBottom: 10,
+    backgroundColor: 'rgba(52,52,52,0)',
+    textAlign: 'center',
+    color:'#FFFFFF'
  },
  boton: {
      height: 36,

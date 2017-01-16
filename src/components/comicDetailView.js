@@ -12,7 +12,7 @@ import React,{
 class comicDetailView extends Component {
   constructor(props){
     super(props);
-    console.log(this.props.route.passProps);
+    console.log('here',this);
     this.passProps = this.props.route.passProps
     this.modified = this.passProps.comic.modified.slice(0,10);
 
