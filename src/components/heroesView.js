@@ -1,23 +1,22 @@
 
-'use strict'
+'use strict';
 
 import React, {
   Component,
   View,
   Text,
   StyleSheet
-} from 'react-native'
+} from 'react-native';
 
-class heroesView extends Component{
-  render(){
-    return(
+class heroesView extends Component {
+  render () {
+    return (
       <View style={styles.container}>
         <Text style={styles.title}>Soy el componente Heroes</Text>
       </View>
-    )
+    );
   }
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -28,11 +27,11 @@ const styles = StyleSheet.create({
     padding: 30
 
   },
-  title:{
+  title: {
     marginTop: 40,
     fontSize: 20,
     justifyContent: 'center'
   }
-})
+});
 
 module.exports = heroesView;
